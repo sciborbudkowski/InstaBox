@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		300EA0572559690B004C09A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 300EA0562559690B004C09A7 /* GoogleService-Info.plist */; };
 		300EA05C25596C5D004C09A7 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EA05B25596C5D004C09A7 /* DatabaseManager.swift */; };
 		300EA05F25596D20004C09A7 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EA05E25596D20004C09A7 /* AuthManager.swift */; };
 		300EA06225596D68004C09A7 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EA06125596D68004C09A7 /* StorageManager.swift */; };
+		300EA079255971CD004C09A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 300EA078255971CD004C09A7 /* GoogleService-Info.plist */; };
+		300EA07C25597261004C09A7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EA07B25597261004C09A7 /* Extensions.swift */; };
+		300EA07F25597E37004C09A7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300EA07E25597E37004C09A7 /* Constants.swift */; };
 		3050440525595BC400387403 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050440425595BC400387403 /* ExploreViewController.swift */; };
 		3050440825595BE000387403 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050440725595BE000387403 /* CameraViewController.swift */; };
 		3050440B25595BF700387403 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050440A25595BF700387403 /* NotificationViewController.swift */; };
@@ -36,10 +38,12 @@
 
 /* Begin PBXFileReference section */
 		118A3F07EEB5884CAB6534F1 /* Pods-InstaBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstaBox.release.xcconfig"; path = "Target Support Files/Pods-InstaBox/Pods-InstaBox.release.xcconfig"; sourceTree = "<group>"; };
-		300EA0562559690B004C09A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		300EA05B25596C5D004C09A7 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		300EA05E25596D20004C09A7 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		300EA06125596D68004C09A7 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		300EA078255971CD004C09A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		300EA07B25597261004C09A7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		300EA07E25597E37004C09A7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3050440425595BC400387403 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		3050440725595BE000387403 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		3050440A25595BF700387403 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
@@ -148,7 +152,6 @@
 				307510BA25595AC100AF9764 /* Model */,
 				307510B925595ABD00AF9764 /* View */,
 				307510B825595AB200AF9764 /* Controller */,
-				307510AC25595A7000AF9764 /* Assets.xcassets */,
 				307510B125595A7000AF9764 /* Info.plist */,
 			);
 			path = InstaBox;
@@ -166,6 +169,7 @@
 		307510B925595ABD00AF9764 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				307510AC25595A7000AF9764 /* Assets.xcassets */,
 				307510BD25595AFC00AF9764 /* Storyboards */,
 			);
 			path = View;
@@ -181,12 +185,14 @@
 		307510BB25595AC800AF9764 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				300EA0562559690B004C09A7 /* GoogleService-Info.plist */,
+				300EA078255971CD004C09A7 /* GoogleService-Info.plist */,
 				307510A325595A6F00AF9764 /* AppDelegate.swift */,
 				307510A525595A6F00AF9764 /* SceneDelegate.swift */,
 				300EA05B25596C5D004C09A7 /* DatabaseManager.swift */,
 				300EA05E25596D20004C09A7 /* AuthManager.swift */,
 				300EA06125596D68004C09A7 /* StorageManager.swift */,
+				300EA07B25597261004C09A7 /* Extensions.swift */,
+				300EA07E25597E37004C09A7 /* Constants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -277,7 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				307510B025595A7000AF9764 /* LaunchScreen.storyboard in Resources */,
-				300EA0572559690B004C09A7 /* GoogleService-Info.plist in Resources */,
+				300EA079255971CD004C09A7 /* GoogleService-Info.plist in Resources */,
 				307510AD25595A7000AF9764 /* Assets.xcassets in Resources */,
 				307510AB25595A6F00AF9764 /* Main.storyboard in Resources */,
 			);
@@ -333,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3050442025595D9100387403 /* EditProfileViewController.swift in Sources */,
+				300EA07F25597E37004C09A7 /* Constants.swift in Sources */,
 				3050440525595BC400387403 /* ExploreViewController.swift in Sources */,
 				3050440825595BE000387403 /* CameraViewController.swift in Sources */,
 				3050440B25595BF700387403 /* NotificationViewController.swift in Sources */,
@@ -345,6 +352,7 @@
 				3050442C25595DD700387403 /* SearchResultViewController.swift in Sources */,
 				3050441425595CE600387403 /* LoginViewController.swift in Sources */,
 				3050442925595DC600387403 /* SearchViewController.swift in Sources */,
+				300EA07C25597261004C09A7 /* Extensions.swift in Sources */,
 				3050440E25595C1200387403 /* ProfileViewController.swift in Sources */,
 				307510A425595A6F00AF9764 /* AppDelegate.swift in Sources */,
 				300EA05F25596D20004C09A7 /* AuthManager.swift in Sources */,
