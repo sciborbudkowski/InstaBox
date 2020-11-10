@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 struct SettingCellModel {
     let title: String
@@ -42,10 +43,69 @@ final class SettingsViewController: UIViewController {
     }
     
     private func configureModels() {
-        let section = [SettingCellModel(title: "Log Out") { [weak self] in
+        data.append([
+            SettingCellModel(title: "Edit Profile") { [weak self] in
+                self?.didTapEditProfile()
+            },
+            SettingCellModel(title: "Invite Friends") { [weak self] in
+                self?.didTapInviteFriends()
+            },
+            SettingCellModel(title: "Save Original Posts") { [weak self] in
+                self?.didTapSaveOriginalPosts()
+            }
+        ])
+        
+        data.append([
+            SettingCellModel(title: "Terms of Service") { [weak self] in
+                self?.didTapTermsOfService()
+            },
+            SettingCellModel(title: "Privacy Policy") { [weak self] in
+                self?.didTapPrivacyPolicy()
+            },
+            SettingCellModel(title: "Help / Feedback") { [weak self] in
+                self?.didTapHelpFeedback()
+            }
+        ])
+        
+        data.append([SettingCellModel(title: "Log Out") { [weak self] in
             self?.didTapLogOut()
-        }]
-        data.append(section)
+        }])
+    }
+    
+    private func didTapEditProfile() {
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+    
+    private func didTapInviteFriends() {
+        
+    }
+    
+    private func didTapSaveOriginalPosts() {
+        
+    }
+    
+    private func didTapTermsOfService() {
+        let urlString: String = "https://help.instagram.com/581066165581870?ref=dp"
+        guard let url = URL(string: urlString) else { return }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
+    
+    private func didTapPrivacyPolicy() {
+        let urlString: String = "https://help.instagram.com/519522125107875"
+        guard let url = URL(string: urlString) else { return }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
+    
+    private func didTapHelpFeedback() {
+        let urlString: String = "https://help.instagram.com/"
+        guard let url = URL(string: urlString) else { return }
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
     }
     
     private func didTapLogOut() {
@@ -86,6 +146,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.settingsCellIdentifier, for: indexPath)
+        cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
         
         return cell
