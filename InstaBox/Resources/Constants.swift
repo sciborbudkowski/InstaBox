@@ -12,4 +12,5 @@ struct Constants {
     static let minimumPasswordLength: Int = 8
     static let settingsCellIdentifier: String = "settingsCellIdentifier"
     static let notificationsCellIdentifier: String = "notificationsCellIdentifier"
-    static let exploreCellIdenfifier: String = "exploreCellIdentifier"}
+    static let exploreCellIdenfifier: String = "exploreCellIdentifier"
+}
