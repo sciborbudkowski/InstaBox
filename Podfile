@@ -14,5 +14,6 @@ target 'InstaBox' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/Storage'
+  pod 'SDWebImage'
 
 end
