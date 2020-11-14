@@ -54,6 +54,8 @@ class NotificationLikeEventTableViewCell: UITableViewCell {
         contentView.addSubview(postButton)
         
         postButton.addTarget(self, action: #selector(didTapPostButton), for: .touchUpInside)
+        
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {

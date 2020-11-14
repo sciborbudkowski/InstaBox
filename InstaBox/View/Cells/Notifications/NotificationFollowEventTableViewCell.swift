@@ -31,13 +31,15 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = 0
-        label.text = "@jim started following you."
+        label.text = "@jim following you."
         
         return label
     }()
     
     private let followButton: UIButton = {
         let button = UIButton()
+        button.layer.cornerRadius = 4
+        button.layer.masksToBounds = true
         
         return button
     }()
@@ -51,6 +53,9 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         contentView.addSubview(followButton)
         
         followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
+        
+        configureForFollow()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
@@ -63,12 +68,27 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         switch model.type {
         case .like(_):
             break
-        case .follow:
-            break
+        case .follow(let state):
+            switch state {
+            case .following:
+                configureForFollow()
+            case .not_following:
+                followButton.setTitle("Follow", for: .normal)
+                followButton.setTitleColor(.white, for: .normal)
+                followButton.layer.borderWidth = 0
+                followButton.backgroundColor = .link
+            }
         }
         
         label.text = model.text
         profileImageView.sd_setImage(with: model.user.profilePhoto, completed: nil)
+    }
+    
+    private func configureForFollow() {
+        followButton.setTitle("Unfollow", for: .normal)
+        followButton.setTitleColor(.label, for: .normal)
+        followButton.layer.borderWidth = 1
+        followButton.layer.borderColor = UIColor.secondarySystemBackground.cgColor
     }
     
     override func prepareForReuse() {
@@ -85,8 +105,12 @@ class NotificationFollowEventTableViewCell: UITableViewCell {
         profileImageView.frame = CGRect(x: 3, y: 3, width: contentView.height - 6, height: contentView.height - 6)
         profileImageView.layer.cornerRadius = profileImageView.height / 2
         
-        let size = contentView.height - 4
-        followButton.frame = CGRect(x: contentView.width - 5 - size, y: 2, width: size, height: size)
+        let size: CGFloat = 100
+        let buttonHeight: CGFloat = 40
+        followButton.frame = CGRect(x: contentView.width - 5 - size,
+                                    y: (contentView.height - buttonHeight) / 2,
+                                    width: size,
+                                    height: buttonHeight)
         
         label.frame = CGRect(x: profileImageView.right + 5,
                              y: 0,
